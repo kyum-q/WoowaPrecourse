@@ -1,6 +1,6 @@
 package christmas.constant;
 
-public interface MenuConstant {
+public interface MenuInterface {
     public String menuName();
     public int price();
 }
