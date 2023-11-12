@@ -5,8 +5,8 @@ public enum AppetizerMenu implements MenuConstant {
     TAPAS("타파스", 5500),
     CAESAR_SALAD("시저샐러드", 8000);
 
-    private String name;
-    private int price;
+    private final String name;
+    private final int price;
 
     AppetizerMenu(String name, int price) {
         this.name = name;
@@ -14,12 +14,12 @@ public enum AppetizerMenu implements MenuConstant {
     }
 
     @Override
-    public String getName() {
+    public String menuName() {
         return name;
     }
 
     @Override
-    public int getPrice() {
+    public int price() {
         return price;
     }
 }

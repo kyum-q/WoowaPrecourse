@@ -5,8 +5,8 @@ public enum DrinkMenu implements MenuConstant {
     RED_WINE("레드와인",60000),
     CHAMPAGNE("샴페인",25000);
 
-    private String name;
-    private int price;
+    private final String name;
+    private final int price;
 
     DrinkMenu(String name, int price) {
         this.name = name;
@@ -14,12 +14,12 @@ public enum DrinkMenu implements MenuConstant {
     }
 
     @Override
-    public String getName() {
+    public String menuName() {
         return name;
     }
 
     @Override
-    public int getPrice() {
+    public int price() {
         return price;
     }
 }

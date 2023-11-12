@@ -4,8 +4,8 @@ public enum DessertMenu implements MenuConstant {
     CHOCOLATE_CAKE("초코케이크", 15000),
     ICE_CREAM("아이스크림", 5000);
 
-    private String name;
-    private int price;
+    private final String name;
+    private final int price;
 
     DessertMenu(String name, int price) {
         this.name = name;
@@ -13,12 +13,12 @@ public enum DessertMenu implements MenuConstant {
     }
 
     @Override
-    public String getName() {
+    public String menuName() {
         return name;
     }
 
     @Override
-    public int getPrice() {
+    public int price() {
         return price;
     }
 }

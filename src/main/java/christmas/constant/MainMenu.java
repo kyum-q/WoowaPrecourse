@@ -6,8 +6,8 @@ public enum MainMenu implements MenuConstant {
     SEAFOOD_PASTA("해산물파스타", 35000),
     CHRISTMAS_PASTA("크리스마스파스타", 25000);
 
-    private String name;
-    private int price;
+    private final String name;
+    private final int price;
 
     MainMenu(String name, int price) {
         this.name = name;
@@ -15,12 +15,12 @@ public enum MainMenu implements MenuConstant {
     }
 
     @Override
-    public String getName() {
+    public String menuName() {
         return name;
     }
 
     @Override
-    public int getPrice() {
+    public int price() {
         return price;
     }
 }
