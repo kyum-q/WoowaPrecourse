@@ -1,6 +1,6 @@
 package christmas.constant;
 
-public enum DessertMenu {
+public enum DessertMenu implements MenuConstant {
     CHOCOLATE_CAKE("초코케이크", 15000),
     ICE_CREAM("아이스크림", 5000);
 
@@ -12,10 +12,12 @@ public enum DessertMenu {
         this.price = price;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public int getPrice() {
         return price;
     }

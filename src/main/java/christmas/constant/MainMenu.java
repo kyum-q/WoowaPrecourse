@@ -1,6 +1,6 @@
 package christmas.constant;
 
-public enum MainMenu {
+public enum MainMenu implements MenuConstant {
     T_BONE_STEAK("티본스테이크", 55000),
     BBQ_RIBS("바비큐립", 54000),
     SEAFOOD_PASTA("해산물파스타", 35000),
@@ -14,10 +14,12 @@ public enum MainMenu {
         this.price = price;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public int getPrice() {
         return price;
     }
