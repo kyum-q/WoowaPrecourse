@@ -2,13 +2,19 @@ package christmas.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import christmas.constant.RequestMessage;
+import christmas.model.Menu;
 import christmas.validator.DateValidator;
+import christmas.validator.OrderMenuValidator;
+
+import java.util.List;
 
 public class Input {
     private DateValidator dateValidator;
+    private OrderMenuValidator menuValidator;
 
     public Input() {
         dateValidator = new DateValidator();
+        menuValidator = new OrderMenuValidator();
     }
 
     public int readDate() {
@@ -20,13 +26,20 @@ public class Input {
             System.out.println(dateValidator.getErrorMessage());
             date = Console.readLine();
         } while (!dateValidator.validate(date));
-        System.out.println();
 
         return dateValidator.getDate();
     }
 
-    public String readOrder() {
-        return "";
+    public List<Menu> readOrder() {
+        String date;
+
+        System.out.print(RequestMessage.REQUEST_ORDER.getMessage());
+        do {
+            System.out.println(menuValidator.getErrorMessage());
+            date = Console.readLine();
+        } while (!menuValidator.validate(date));
+
+        return menuValidator.getMenus();
     }
 
 }
