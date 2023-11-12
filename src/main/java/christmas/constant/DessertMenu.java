@@ -1,6 +1,6 @@
 package christmas.constant;
 
-public enum DessertMenu implements MenuConstant {
+public enum DessertMenu implements MenuInterface {
     CHOCOLATE_CAKE("초코케이크", 15000),
     ICE_CREAM("아이스크림", 5000);
 
@@ -20,5 +20,14 @@ public enum DessertMenu implements MenuConstant {
     @Override
     public int price() {
         return price;
+    }
+
+    public static boolean contains(String testValue) {
+        for (DessertMenu menu : DessertMenu.values()) {
+            if (menu.menuName().equals(testValue)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

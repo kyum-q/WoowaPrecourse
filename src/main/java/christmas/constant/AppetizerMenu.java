@@ -1,6 +1,6 @@
 package christmas.constant;
 
-public enum AppetizerMenu implements MenuConstant {
+public enum AppetizerMenu implements MenuInterface {
     MUSHROOM_SOUP("양송이수프", 6000),
     TAPAS("타파스", 5500),
     CAESAR_SALAD("시저샐러드", 8000);
@@ -21,5 +21,14 @@ public enum AppetizerMenu implements MenuConstant {
     @Override
     public int price() {
         return price;
+    }
+
+    public static boolean contains(String testValue) {
+        for (AppetizerMenu menu : AppetizerMenu.values()) {
+            if (menu.menuName().equals(testValue)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
