@@ -5,13 +5,11 @@ import christmas.constant.menu.MenuKind;
 import christmas.constant.OrderConstant;
 import christmas.model.Menu;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class OrderMenuValidator {
-    private HashMap<String, Integer> orders;
+    private LinkedHashMap<String, Integer> orders;
     private List<Menu> menus;
     private OrderConstant minOrder, maxOrder;
     private ErrorMessage errorMessage;
@@ -21,7 +19,7 @@ public class OrderMenuValidator {
         maxOrder = OrderConstant.MAX_ORDER;
     }
     public boolean validate(String s) {
-        orders = new HashMap<>();
+        orders = new LinkedHashMap<>();
         menus = new ArrayList<>();
 
         s = s.replaceAll(" ", "");
