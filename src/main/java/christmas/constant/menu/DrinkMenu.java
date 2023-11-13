@@ -23,12 +23,12 @@ public enum DrinkMenu implements MenuInterface {
         return price;
     }
 
-    public static boolean contains(String testValue) {
+    public static int getContainPrice(String testValue) {
         for (DrinkMenu menu : DrinkMenu.values()) {
             if (menu.menuName().equals(testValue)) {
-                return true;
+                return menu.price();
             }
         }
-        return false;
+        return 0;
     }
 }

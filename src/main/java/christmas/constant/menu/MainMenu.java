@@ -24,12 +24,12 @@ public enum MainMenu implements MenuInterface {
         return price;
     }
 
-    public static boolean contains(String testValue) {
+    public static int getContainPrice(String testValue) {
         for (MainMenu menu : MainMenu.values()) {
             if (menu.menuName().equals(testValue)) {
-                return true;
+                return menu.price();
             }
         }
-        return false;
+        return 0;
     }
 }
