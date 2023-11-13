@@ -68,8 +68,6 @@ public class EventManager {
        return "없음";
     }
 
-
-
     public static int getWeek(int date) {
         Calendar cal = Calendar.getInstance();
         int year = EventConstant.EVENT_YEAR.value();

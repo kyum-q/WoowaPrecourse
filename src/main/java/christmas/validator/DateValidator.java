@@ -12,6 +12,7 @@ public class DateValidator {
         minDate = OrderConstant.MIN_DATE;
         maxDate = OrderConstant.MAX_DATE;
     }
+
     public boolean validate(String s) {
         return validOtherString(s) && validLessMinOverMax(date);
     }

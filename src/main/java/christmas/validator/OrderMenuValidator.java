@@ -6,7 +6,6 @@ import christmas.constant.OrderConstant;
 import christmas.model.Menu;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class OrderMenuValidator {
     private LinkedHashMap<String, Integer> orders;
@@ -41,7 +40,6 @@ public class OrderMenuValidator {
 
     private void settingOrderMap(String orderString) {
         String[] order = orderString.split("-", -1);
-
         orders.put(order[0], Integer.parseInt(order[1]));
     }
 
@@ -53,7 +51,6 @@ public class OrderMenuValidator {
             errorMessage = ErrorMessage.ERROR_ORDER_NOT_EXIST_MENU;
             return false;
         }
-
         return true;
     }
 
