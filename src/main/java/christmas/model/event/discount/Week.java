@@ -3,6 +3,7 @@ package christmas.model.event.discount;
 import christmas.constant.event.EventConstant;
 import christmas.constant.event.EventName;
 import christmas.constant.menu.MenuKind;
+import christmas.model.EventManager;
 import christmas.model.Menu;
 import christmas.model.event.Event;
 
@@ -17,7 +18,7 @@ public class Week extends Event {
     }
 
     private boolean checkWeekends(int date) {
-        int week = getWeek(date);
+        int week = EventManager.getWeek(date);
 
         if(week==6 || week==7) {
             eventName = EventName.EVENT_WEEKEND;

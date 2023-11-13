@@ -17,12 +17,4 @@ public class Event {
         return eventName.getName();
     }
 
-    public int getWeek(int date) {
-        Calendar cal = Calendar.getInstance();
-        int year = EventConstant.EVENT_YEAR.value();
-        int month = EventConstant.EVENT_MONTH.value()-1;
-        cal.set(year, month, date);
-
-        return cal.get(Calendar.DAY_OF_WEEK);
-    }
 }
