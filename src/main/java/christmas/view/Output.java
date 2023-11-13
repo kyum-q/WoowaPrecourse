@@ -9,13 +9,14 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 public class Output {
+
     public void printFirstMent(int date) {
-        System.out.println(EventConstant.EVENT_MONTH + "월 " + date + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
+        System.out.println(EventConstant.EVENT_MONTH.value() + "월 " + date + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
         System.out.println();
     }
 
     public void printTotalMenu(List<Menu> menus) {
-        System.out.println(PrintMessage.TOTAL_MENU);
+        System.out.println(PrintMessage.TOTAL_MENU.getMessage());
         for(Menu menu : menus) {
             System.out.println(menu.getMenuName() + " "  + menu.getSize() + "개");
         }
@@ -23,19 +24,25 @@ public class Output {
     }
 
     public void printBeforeDiscountTotalPrice(int price) {
-        System.out.println(PrintMessage.BEFORE_DISCOUNT_TOTAL_PRICE);
-        System.out.printf(getPriceString(price));
+        System.out.println(PrintMessage.BEFORE_DISCOUNT_TOTAL_PRICE.getMessage());
+        System.out.println(getPriceString(price));
         System.out.println();
     }
 
-    public void printGiftMenu() {
-        System.out.println(PrintMessage.GIFT_MENU);
-        System.out.println();
+    public void printGiftMenu(String gift) {
+        System.out.println(PrintMessage.GIFT_MENU.getMessage());
+        System.out.println(gift);
         System.out.println();
     }
 
     public void printBenefit(List<Event> events) {
-        System.out.println(PrintMessage.BENEFIT);
+        System.out.println(PrintMessage.BENEFIT.getMessage());
+
+        if(events.isEmpty()) {
+            System.out.println("없음");
+            System.out.println();
+            return;
+        }
         for(Event event : events) {
             System.out.println(event.getEventName() + ": " + getPriceString(event.getDiscountPrice()));
         }
@@ -43,19 +50,19 @@ public class Output {
     }
 
     public void printTotalBenefit(int benefit) {
-        System.out.println(PrintMessage.TOTAL_BENEFIT);
-        System.out.println(benefit);
+        System.out.println(PrintMessage.TOTAL_BENEFIT.getMessage());
+        System.out.println(getPriceString(benefit));
         System.out.println();
     }
 
     public void printAfterDiscountTotalPrice(int price) {
-        System.out.println(PrintMessage.AFTER_DISCOUNT_TOTAL_PRICE);
-        System.out.printf(getPriceString(price));
+        System.out.println(PrintMessage.AFTER_DISCOUNT_TOTAL_PRICE.getMessage());
+        System.out.println(getPriceString(price));
         System.out.println();
     }
 
     public void printGiftBadge(Badge badge) {
-        System.out.println(PrintMessage.EVENT_BADGE);
+        System.out.println(PrintMessage.EVENT_BADGE.getMessage());
         System.out.println(badge.getBadgeName());
     }
 
