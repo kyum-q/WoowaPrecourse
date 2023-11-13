@@ -19,7 +19,7 @@ public class Badge {
         return BadgeName.LEVEL_3;
     }
 
-    public BadgeName getBadgeName() {
-        return badgeName;
+    public String getBadgeName() {
+        return badgeName.badgeName();
     }
 }
