@@ -13,7 +13,7 @@ public class Week extends Event {
     private final boolean isWeekend;
     public Week(int date, List<Menu> menus) {
         isWeekend = checkWeekends(date);
-        discountCost = getDiscountCost(menus);
+        discountPrice = getDiscountPrice(menus);
     }
 
     private boolean checkWeekends(int date) {
@@ -27,7 +27,7 @@ public class Week extends Event {
         return false;
     }
 
-    private int getDiscountCost(List<Menu> menus) {
+    private int getDiscountPrice(List<Menu> menus) {
         if(isWeekend) {
             int mainOrderSize = menus.stream().filter(menu -> menu.getKind() == MenuKind.MAIN)
                     .mapToInt(Menu::getSize).sum();

@@ -6,7 +6,7 @@ import christmas.model.event.Event;
 
 public class SpecialDay extends Event {
     public SpecialDay() {
-        discountCost = EventConstant.SPECIAL_DISCOUNT_VALUE.value();
+        discountPrice = EventConstant.SPECIAL_DISCOUNT_VALUE.value();
         eventName = EventName.EVENT_SPECIAL_DAY;
     }
 }

@@ -8,7 +8,7 @@ public class ChrismasDday extends Event {
     ChrismasDday(int date) {
         int init = EventConstant.D_DAY_DISCOUNT_INIT_VALUE.value();
         int increase = EventConstant.D_DAY_INCREASE_VALUE.value();
-        discountCost = init + increase * date;
+        discountPrice = init + increase * date;
 
         eventName = EventName.EVENT_D_DAY;
     }

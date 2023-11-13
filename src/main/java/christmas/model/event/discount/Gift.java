@@ -6,7 +6,7 @@ import christmas.model.event.Event;
 
 public class Gift extends Event {
     public Gift() {
-        discountCost = EventConstant.GIFT_DISCOUNT_VALUE.value();
+        discountPrice = EventConstant.GIFT_DISCOUNT_VALUE.value();
         eventName = EventName.EVENT_GIFT;
     }
 }

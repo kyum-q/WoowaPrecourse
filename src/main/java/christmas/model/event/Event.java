@@ -6,11 +6,11 @@ import christmas.constant.event.EventName;
 import java.util.Calendar;
 
 public class Event {
-    protected int discountCost;
+    protected int discountPrice;
     protected EventName eventName;
 
-    public int getDiscountCost() {
-        return discountCost;
+    public int getDiscountPrice() {
+        return discountPrice * -1;
     }
 
     public String getEventName() {
