@@ -1,14 +1,15 @@
-package christmas.constant;
+package christmas.constant.menu;
 
-public enum AppetizerMenu implements MenuInterface {
-    MUSHROOM_SOUP("양송이수프", 6000),
-    TAPAS("타파스", 5500),
-    CAESAR_SALAD("시저샐러드", 8000);
+public enum MainMenu implements MenuInterface {
+    T_BONE_STEAK("티본스테이크", 55000),
+    BBQ_RIBS("바비큐립", 54000),
+    SEAFOOD_PASTA("해산물파스타", 35000),
+    CHRISTMAS_PASTA("크리스마스파스타", 25000);
 
     private final String name;
     private final int price;
 
-    AppetizerMenu(String name, int price) {
+    MainMenu(String name, int price) {
         this.name = name;
         this.price = price;
     }
@@ -24,7 +25,7 @@ public enum AppetizerMenu implements MenuInterface {
     }
 
     public static boolean contains(String testValue) {
-        for (AppetizerMenu menu : AppetizerMenu.values()) {
+        for (MainMenu menu : MainMenu.values()) {
             if (menu.menuName().equals(testValue)) {
                 return true;
             }

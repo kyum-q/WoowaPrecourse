@@ -1,4 +1,4 @@
-package christmas.constant;
+package christmas.constant.menu;
 
 public interface MenuInterface {
     public String menuName();
