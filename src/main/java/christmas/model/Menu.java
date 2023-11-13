@@ -1,7 +1,6 @@
 package christmas.model;
 
-import christmas.constant.*;
-import com.sun.tools.javac.Main;
+import christmas.constant.menu.*;
 
 public class Menu {
     private final String menuName;

@@ -1,8 +1,7 @@
 package christmas.validator;
 
-import christmas.constant.DrinkMenu;
 import christmas.constant.ErrorMessage;
-import christmas.constant.MenuKind;
+import christmas.constant.menu.MenuKind;
 import christmas.constant.OrderConstant;
 import christmas.model.Menu;
 
