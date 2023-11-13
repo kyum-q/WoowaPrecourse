@@ -40,4 +40,8 @@ public class Menu {
     public MenuKind getKind() {
         return kind;
     }
+
+    public String getMenuName() {
+        return menuName;
+    }
 }

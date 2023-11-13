@@ -18,4 +18,8 @@ public class Badge {
             return BadgeName.LEVEL_2;
         return BadgeName.LEVEL_3;
     }
+
+    public BadgeName getBadgeName() {
+        return badgeName;
+    }
 }
