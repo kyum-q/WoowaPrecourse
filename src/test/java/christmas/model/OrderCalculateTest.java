@@ -55,7 +55,7 @@ class OrderCalculateTest {
     }
 
     @Test
-    void getAfterDiscountTotalPrice() {
+    void 할인_후_총주문_금액_테스트() {
         int price = calculate.getBeforeDiscountTotalPrice(menus);
         int benefit = calculate.getBenefitTotalPrice(events);
         int result = calculate.getAfterDiscountTotalPrice(true, price, benefit);
