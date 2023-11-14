@@ -29,49 +29,29 @@ class EventTest {
     @Test
     void 크리스마스_디데이_할인_테스트() {
         event = new ChristmasDDay(christmasDate);
-        int price = event.getDiscountPrice();
-        assertThat(price).isEqualTo(-3400);
-
-        String name = event.getEventName();
-        assertThat(name).isEqualTo("크리스마스 디데이 할인");
+        assertThat(event.toString()).isEqualTo("크리스마스 디데이 할인: -3,400원");
     }
 
     @Test
     void 평일_할인_테스트() {
         event = new Week(christmasDate, menus);
-        int price = event.getDiscountPrice();
-        assertThat(price).isEqualTo(-4046);
-
-        String name = event.getEventName();
-        assertThat(name).isEqualTo("평일 할인");
+        assertThat(event.toString()).isEqualTo("평일 할인: -4,046원");
     }
 
     @Test
     void 주말_할인_테스트() {
         event = new Week(2, menus);
-        int price = event.getDiscountPrice();
-        assertThat(price).isEqualTo(-4046);
-
-        String name = event.getEventName();
-        assertThat(name).isEqualTo("주말 할인");
+        assertThat(event.toString()).isEqualTo("주말 할인: -4,046원");
     }
     @Test
     void 특별_할인_테스트() {
         event = new SpecialDay();
-        int price = event.getDiscountPrice();
-        assertThat(price).isEqualTo(-1000);
-
-        String name = event.getEventName();
-        assertThat(name).isEqualTo("특별 할인");
+        assertThat(event.toString()).isEqualTo("특별 할인: -1,000원");
     }
 
     @Test
     void 증정_이벤트_테스트() {
         event = new Gift();
-        int price = event.getDiscountPrice();
-        assertThat(price).isEqualTo(-25000);
-
-        String name = event.getEventName();
-        assertThat(name).isEqualTo("증정 이벤트");
+        assertThat(event.toString()).isEqualTo("증정 이벤트: -25,000원");
     }
 }

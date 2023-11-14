@@ -18,7 +18,7 @@ public class Output {
     public void printTotalMenu(List<Menu> menus) {
         System.out.println(PrintMessage.TOTAL_MENU.getMessage());
         for(Menu menu : menus) {
-            System.out.println(menu.getMenuName() + " "  + menu.getSize() + "개");
+            System.out.println(menu.toString());
         }
         System.out.println();
     }
@@ -44,7 +44,7 @@ public class Output {
             return;
         }
         for(Event event : events) {
-            System.out.println(event.getEventName() + ": " + getPriceString(event.getDiscountPrice()));
+            System.out.println(event.toString());
         }
         System.out.println();
     }
@@ -61,12 +61,12 @@ public class Output {
         System.out.println();
     }
 
-    public void printGiftBadge(Badge badge) {
+    public void printGiftBadge(String badgeString) {
         System.out.println(PrintMessage.EVENT_BADGE.getMessage());
-        System.out.println(badge.getBadgeName());
+        System.out.println(badgeString);
     }
 
-    private String getPriceString(int number) {
+    public static String getPriceString(int number) {
         // 3의 배수마다 쉼표 추가하는 포맷 설정
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
         return decimalFormat.format(number)  + "원";

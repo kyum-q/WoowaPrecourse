@@ -36,13 +36,13 @@ class EventManagerTest {
         List<Event> events = eventManager.getEvents();
         String result = "";
         for (Event event : events) {
-            result += event.getEventName() + ": " + event.getDiscountPrice() + "\n";
+            result += event.toString() + "\n";
         }
 
-        assertThat(result).isEqualTo("크리스마스 디데이 할인: -1200\n" +
-                "평일 할인: -4046\n" +
-                "특별 할인: -1000\n" +
-                "증정 이벤트: -25000\n"
+        assertThat(result).isEqualTo("크리스마스 디데이 할인: -1,200원\n" +
+                "평일 할인: -4,046원\n" +
+                "특별 할인: -1,000원\n" +
+                "증정 이벤트: -25,000원\n"
         );
     }
 
@@ -50,7 +50,7 @@ class EventManagerTest {
     void 메뉴와_날짜에_따른_배찌_테스트() {
         eventManager.settingEvent(date, menus, calculate.getBeforeDiscountTotalPrice(menus));
         eventManager.setBadgeEvent(calculate.getBenefitTotalPrice(eventManager.getEvents()));
-        String result = eventManager.getBadge().getBadgeName();
+        String result = eventManager.getBadgeName();
 
         assertThat(result).isEqualTo("산타");
     }
