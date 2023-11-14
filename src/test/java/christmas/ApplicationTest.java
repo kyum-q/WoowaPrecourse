@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class ApplicationTest extends NsTest {
     private static final String LINE_SEPARATOR = System.lineSeparator();
@@ -33,26 +35,11 @@ class ApplicationTest extends NsTest {
         });
     }
 
-    @Test
-    void 날짜_예외_테스트() {
+    @ValueSource(strings = {"a", "0", "31"})
+    @ParameterizedTest
+    void 날짜_예외_테스트(String s) {
         assertSimpleTest(() -> {
-            runException("a");
-            assertThat(output()).contains("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
-        });
-    }
-
-    @Test
-    void 날짜_예외_1_미만_테스트() {
-        assertSimpleTest(() -> {
-            runException("0");
-            assertThat(output()).contains("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
-        });
-    }
-
-    @Test
-    void 날짜_예외_31_초과_테스트() {
-        assertSimpleTest(() -> {
-            runException("32");
+            runException(s);
             assertThat(output()).contains("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
         });
     }
@@ -81,15 +68,11 @@ class ApplicationTest extends NsTest {
         });
     }
 
-    @Test
-    void 주문_예외_메뉴_음료만_주문_테스트() {
+    @ValueSource(strings = {"제로콜라-1", "제로콜라-1, 샴페인-3"})
+    @ParameterizedTest
+    void 주문_예외_메뉴_음료만_주문_테스트(String s) {
         assertSimpleTest(() -> {
-            runException("3", "제로콜라-1");
-            assertThat(output()).contains("[ERROR] 음료만 주문하실 수 없습니다. 다시 입력해 주세요.");
-        });
-
-        assertSimpleTest(() -> {
-            runException("3", "제로콜라-1, 샴페인-3");
+            runException("3", s);
             assertThat(output()).contains("[ERROR] 음료만 주문하실 수 없습니다. 다시 입력해 주세요.");
         });
     }
