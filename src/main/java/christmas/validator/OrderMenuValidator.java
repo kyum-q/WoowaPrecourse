@@ -81,7 +81,7 @@ public class OrderMenuValidator {
     }
 
     public List<Menu> getMenus() {
-        return menus;
+        return  Collections.unmodifiableList(menus);
     }
 
     public String getErrorMessage() {

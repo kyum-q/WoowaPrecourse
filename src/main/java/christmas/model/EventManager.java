@@ -12,6 +12,7 @@ import christmas.model.event.discount.Week;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 public class EventManager {
@@ -78,11 +79,11 @@ public class EventManager {
     }
 
     public List<Event> getEvents() {
-        return events;
+        return Collections.unmodifiableList(events);
     }
 
-    public Badge getBadge() {
-        return badge;
+    public String getBadgeName() {
+        return badge.getBadgeName();
     }
 
     public boolean isGiftEvent() {
