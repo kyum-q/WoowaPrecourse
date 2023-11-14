@@ -2,6 +2,7 @@ package christmas.model.event;
 
 import christmas.constant.event.EventConstant;
 import christmas.constant.event.EventName;
+import christmas.view.Output;
 
 import java.util.Calendar;
 
@@ -13,8 +14,8 @@ public class Event {
         return discountPrice * -1;
     }
 
-    public String getEventName() {
-        return eventName.getName();
+    @Override
+    public String toString() {
+        return eventName.getName() + ": " + Output.getPriceString(discountPrice * -1);
     }
-
 }

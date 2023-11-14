@@ -46,11 +46,12 @@ public class Menu {
         return kind;
     }
 
-    public String getMenuName() {
-        return menuName;
-    }
-
     public int getPrice() {
         return price * size;
+    }
+
+    @Override
+    public String toString() {
+        return menuName + " "  + size + "개";
     }
 }
