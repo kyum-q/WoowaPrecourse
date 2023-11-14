@@ -38,7 +38,7 @@ public class OrderController {
         eventManager.settingEvent(date, orderMenus, beforeDiscountTotalPrice);
 
         benefitPrice = calculate.getBenefitTotalPrice(eventManager.getEvents());
-        eventManager.setBadgeEvent(benefitPrice * -1);
+        eventManager.setBadgeEvent(benefitPrice);
 
         printResult();
     }

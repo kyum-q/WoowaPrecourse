@@ -31,7 +31,7 @@ public class EventManager {
     }
 
     public void setBadgeEvent(int benefit) {
-        badge = new Badge(benefit);
+        badge = new Badge(benefit * -1);
     }
 
     private void checkChristmasDDayEvent(int date) {
