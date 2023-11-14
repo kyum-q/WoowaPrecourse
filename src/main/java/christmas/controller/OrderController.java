@@ -43,7 +43,7 @@ public class OrderController {
         printResult();
     }
 
-    public void printResult() {
+    private void printResult() {
         output.printFirstMent(date);
         output.printTotalMenu(orderMenus);
         output.printBeforeDiscountTotalPrice(beforeDiscountTotalPrice);
