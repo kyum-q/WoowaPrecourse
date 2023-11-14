@@ -1,10 +1,6 @@
 package christmas.model;
 
 import christmas.model.event.Event;
-import christmas.model.event.discount.ChristmasDDay;
-import christmas.model.event.discount.Gift;
-import christmas.model.event.discount.SpecialDay;
-import christmas.model.event.discount.Week;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
