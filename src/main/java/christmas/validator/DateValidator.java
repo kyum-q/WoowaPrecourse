@@ -22,7 +22,7 @@ public class DateValidator {
         return true;
     }
 
-    public boolean validLessMinOverMax(int date) {
+    private boolean validLessMinOverMax(int date) {
         EventConstant minDate = EventConstant.EVENT_MIN_DATE;
         EventConstant maxDate = EventConstant.EVENT_MAX_DATE;
         try {
