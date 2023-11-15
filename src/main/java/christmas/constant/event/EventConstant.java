@@ -15,7 +15,12 @@ public enum EventConstant {
     BADGE_LEVEL_2_VALUE(10000),
     BADGE_LEVEL_3_VALUE(20000),
     EVENT_YEAR(2023),
-    EVENT_MONTH(12);
+    EVENT_MONTH(12),
+    EVENT_MIN_DATE(1),
+    EVENT_MAX_DATE(31),
+    EVENT_MIN_ORDER(1),
+    EVENT_MAX_ORDER(20),
+    EVENT_MIN_PRICE(10000);
 
     private final int value;
 
