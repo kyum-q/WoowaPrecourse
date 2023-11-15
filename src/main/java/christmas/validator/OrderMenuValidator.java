@@ -1,8 +1,8 @@
 package christmas.validator;
 
 import christmas.constant.ErrorMessage;
+import christmas.constant.event.EventConstant;
 import christmas.constant.menu.MenuKind;
-import christmas.constant.OrderConstant;
 import christmas.model.Menu;
 
 import java.util.*;
@@ -10,20 +10,15 @@ import java.util.*;
 public class OrderMenuValidator {
     private LinkedHashMap<String, Integer> orders;
     private List<Menu> menus;
-    private OrderConstant minOrder, maxOrder;
     private ErrorMessage errorMessage;
 
-    public OrderMenuValidator() {
-        minOrder = OrderConstant.MIN_ORDER;
-        maxOrder = OrderConstant.MAX_ORDER;
-    }
     public boolean validate(String s) {
         orders = new LinkedHashMap<>();
         menus = new ArrayList<>();
 
         s = s.replaceAll(" ", "");
         return validOtherString(s) && validContainUsingMenu(orders) &&
-                validLessMinOverMax(menus) && validOrderOnlyDrink(menus);
+                validLessMinOverMax(menus) && validOrderOnlyDrink(menus) && validLessMinOrder(menus);
     }
 
     private boolean validOtherString(String s) {
@@ -32,7 +27,7 @@ public class OrderMenuValidator {
             orderStrings.forEach(this::settingOrderMap);
         }
         catch (IllegalArgumentException e) {
-            errorMessage = ErrorMessage.ERROR_ORDER_OTHER_DATE;
+            errorMessage = ErrorMessage.ERROR_ORDER;
             return false;
         }
         return true;
@@ -40,7 +35,15 @@ public class OrderMenuValidator {
 
     private void settingOrderMap(String orderString) {
         String[] order = orderString.split("-", -1);
-        orders.put(order[0], Integer.parseInt(order[1]));
+
+        int size = Integer.parseInt(order[1]);
+        if(size <= 0) // 사이즈 체크
+            throw new IllegalArgumentException();
+
+        if(orders.containsKey(order[0])) // 중복 체크
+            throw new IllegalArgumentException();
+
+        orders.put(order[0], size);
     }
 
     private boolean validContainUsingMenu(HashMap<String, Integer> orders) {
@@ -48,16 +51,18 @@ public class OrderMenuValidator {
             orders.forEach((name, size) -> menus.add(new Menu(name, size)));
         }
         catch (IllegalArgumentException e) {
-            errorMessage = ErrorMessage.ERROR_ORDER_NOT_EXIST_MENU;
+            errorMessage = ErrorMessage.ERROR_ORDER;
             return false;
         }
         return true;
     }
 
-    public boolean validLessMinOverMax(List<Menu> menus) {
+    private boolean validLessMinOverMax(List<Menu> menus) {
+        EventConstant minOrder = EventConstant.EVENT_MIN_ORDER;
+        EventConstant maxOrder = EventConstant.EVENT_MAX_ORDER;
         int size = menus.stream().mapToInt(Menu::getSize).sum();
         try {
-            if(size < minOrder.getNumber() || size > maxOrder.getNumber()) {
+            if(size < minOrder.value() || size > maxOrder.value()) {
                 throw new IllegalArgumentException();
             }
         }
@@ -68,7 +73,7 @@ public class OrderMenuValidator {
         return true;
     }
 
-    public boolean validOrderOnlyDrink(List<Menu> menus) {
+    private boolean validOrderOnlyDrink(List<Menu> menus) {
         try {
             if(menus.stream().allMatch(menu -> menu.getKind() == MenuKind.DRINK))
                 throw new IllegalArgumentException();
@@ -80,8 +85,23 @@ public class OrderMenuValidator {
         return true;
     }
 
+    private boolean validLessMinOrder(List<Menu> menus) {
+        EventConstant minPrice = EventConstant.EVENT_MIN_PRICE;
+        int totalPrice = menus.stream().mapToInt(Menu::getPrice).sum();
+        try {
+            if(totalPrice < minPrice.value()) {
+                throw new IllegalArgumentException();
+            }
+        }
+        catch (IllegalArgumentException e) {
+            errorMessage = ErrorMessage.ERROR_ORDER_LESS_MIN_PRICE;
+            return false;
+        }
+        return true;
+    }
+
     public List<Menu> getMenus() {
-        return  Collections.unmodifiableList(menus);
+        return Collections.unmodifiableList(menus);
     }
 
     public String getErrorMessage() {
