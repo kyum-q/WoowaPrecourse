@@ -30,11 +30,11 @@ public class Week extends Event {
 
     private int getDiscountPrice(List<Menu> menus) {
         if(isWeekend) {
-            int mainOrderSize = menus.stream().filter(menu -> menu.getKind() == MenuKind.MAIN)
+            int mainOrderSize = menus.stream().filter(menu -> menu.checkKind(MenuKind.MAIN))
                     .mapToInt(Menu::getSize).sum();
             return mainOrderSize * EventConstant.WEEK_DISCOUNT_VALUE.value();
         }
-        int mainOrderSize = menus.stream().filter(menu -> menu.getKind() == MenuKind.DESSERT)
+        int mainOrderSize = menus.stream().filter(menu -> menu.checkKind(MenuKind.DESSERT))
                 .mapToInt(Menu::getSize).sum();
         return mainOrderSize * EventConstant.WEEK_DISCOUNT_VALUE.value();
     }

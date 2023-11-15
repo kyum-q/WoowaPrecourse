@@ -1,6 +1,6 @@
 package christmas.constant.event;
 
-import christmas.constant.menu.DrinkMenu;
+import christmas.constant.menu.MenuConstant;
 
 public enum EventConstant {
     D_DAY_DISCOUNT_INIT_VALUE(1000),
@@ -10,7 +10,7 @@ public enum EventConstant {
     SPECIAL_DISCOUNT_VALUE(1000),
     SPECIAL_EVENT_SUNDAY_OTHER_DAY(25),
     GIFT_CONDITION_PRICE(120000),
-    GIFT_DISCOUNT_VALUE(DrinkMenu.CHAMPAGNE.price()),
+    GIFT_DISCOUNT_VALUE(MenuConstant.CHAMPAGNE.price()),
     BADGE_LEVEL_1_VALUE(5000),
     BADGE_LEVEL_2_VALUE(10000),
     BADGE_LEVEL_3_VALUE(20000),

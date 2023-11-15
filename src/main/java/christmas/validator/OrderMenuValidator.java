@@ -75,7 +75,7 @@ public class OrderMenuValidator {
 
     private boolean validOrderOnlyDrink(List<Menu> menus) {
         try {
-            if(menus.stream().allMatch(menu -> menu.getKind() == MenuKind.DRINK))
+            if(menus.stream().allMatch(menu -> menu.checkKind(MenuKind.DRINK)))
                 throw new IllegalArgumentException();
         }
         catch (IllegalArgumentException e) {

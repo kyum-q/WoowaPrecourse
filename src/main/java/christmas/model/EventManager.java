@@ -1,7 +1,7 @@
 package christmas.model;
 
 import christmas.constant.event.EventConstant;
-import christmas.constant.menu.DrinkMenu;
+import christmas.constant.menu.MenuConstant;
 import christmas.constant.menu.MenuKind;
 import christmas.model.event.Badge;
 import christmas.model.event.Event;
@@ -48,7 +48,7 @@ public class EventManager {
     }
 
     private boolean checkWeekEventKindNotContain(Menu menu) {
-        return menu.getKind() != MenuKind.DESSERT && menu.getKind() != MenuKind.MAIN;
+        return !menu.checkKind(MenuKind.DESSERT) && !menu.checkKind(MenuKind.MAIN);
     }
 
     private void checkSpecialDayEvent(int date) {
@@ -65,7 +65,7 @@ public class EventManager {
     }
 
     public String containGift() {
-       if(isGiftEvent) return DrinkMenu.CHAMPAGNE.menuName() + " 1개";
+       if(isGiftEvent) return MenuConstant.CHAMPAGNE.menuName() + " 1개";
        return "없음";
     }
 
