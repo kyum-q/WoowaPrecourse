@@ -1,17 +1,11 @@
 package christmas.validator;
 
 import christmas.constant.ErrorMessage;
-import christmas.constant.OrderConstant;
+import christmas.constant.event.EventConstant;
 
 public class DateValidator {
     private int date;
-    private OrderConstant minDate, maxDate;
     private ErrorMessage errorMessage;
-
-    public DateValidator() {
-        minDate = OrderConstant.MIN_DATE;
-        maxDate = OrderConstant.MAX_DATE;
-    }
 
     public boolean validate(String s) {
         return validOtherString(s) && validLessMinOverMax(date);
@@ -29,8 +23,10 @@ public class DateValidator {
     }
 
     public boolean validLessMinOverMax(int date) {
+        EventConstant minDate = EventConstant.EVENT_MIN_DATE;
+        EventConstant maxDate = EventConstant.EVENT_MAX_DATE;
         try {
-            if(date < minDate.getNumber() || date > maxDate.getNumber()) {
+            if(date < minDate.value() || date > maxDate.value()) {
                 throw new IllegalArgumentException();
             }
         }
