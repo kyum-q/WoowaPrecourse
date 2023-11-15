@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.constant.event.EventConstant;
 import christmas.model.EventManager;
 import christmas.model.Menu;
 import christmas.model.OrderCalculate;
@@ -29,7 +30,9 @@ public class OrderController {
         orderMenus = input.readOrder();
 
         beforeDiscountTotalPrice = calculate.getBeforeDiscountTotalPrice(orderMenus);
-        eventManager.settingEvent(date, orderMenus, beforeDiscountTotalPrice);
+        if(beforeDiscountTotalPrice >= EventConstant.EVENT_MIN_PRICE.value()) {
+            eventManager.settingEvent(date, orderMenus, beforeDiscountTotalPrice);
+        }
 
         benefitPrice = calculate.getBenefitTotalPrice(eventManager.getEvents());
         eventManager.setBadgeEvent(benefitPrice);
@@ -38,7 +41,7 @@ public class OrderController {
     }
 
     private void printResult() {
-        output.printFirstMent(date);
+        output.printFirstMent(date, beforeDiscountTotalPrice);
         output.printTotalMenu(orderMenus);
         output.printBeforeDiscountTotalPrice(beforeDiscountTotalPrice);
         output.printGiftMenu(eventManager.containGift());
