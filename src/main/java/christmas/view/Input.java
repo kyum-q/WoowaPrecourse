@@ -20,8 +20,8 @@ public class Input {
     public int readDate() {
         String date;
 
-        System.out.println(RequestMessage.REQUEST_FIRST_MENT.getMessage());
-        System.out.print(RequestMessage.REQUEST_DATE.getMessage());
+        System.out.println(RequestMessage.REQUEST_FIRST_MENT.toString());
+        System.out.print(RequestMessage.REQUEST_DATE.toString());
         do {
             System.out.println(dateValidator.getErrorMessage());
             date = Console.readLine();
@@ -33,7 +33,7 @@ public class Input {
     public List<Menu> readOrder() {
         String date;
 
-        System.out.print(RequestMessage.REQUEST_ORDER.getMessage());
+        System.out.print(RequestMessage.REQUEST_ORDER.toString());
         do {
             System.out.println(menuValidator.getErrorMessage());
             date = Console.readLine();

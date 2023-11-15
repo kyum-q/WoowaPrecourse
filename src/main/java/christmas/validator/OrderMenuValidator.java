@@ -18,7 +18,7 @@ public class OrderMenuValidator {
 
         s = s.replaceAll(" ", "");
         return validOtherString(s) && validContainUsingMenu(orders) &&
-                validLessMinOverMax(menus) && validOrderOnlyDrink(menus) && validLessMinOrder(menus);
+                validLessMinOverMax(menus) && validOrderOnlyDrink(menus);
     }
 
     private boolean validOtherString(String s) {
@@ -85,21 +85,6 @@ public class OrderMenuValidator {
         return true;
     }
 
-    private boolean validLessMinOrder(List<Menu> menus) {
-        EventConstant minPrice = EventConstant.EVENT_MIN_PRICE;
-        int totalPrice = menus.stream().mapToInt(Menu::getPrice).sum();
-        try {
-            if(totalPrice < minPrice.value()) {
-                throw new IllegalArgumentException();
-            }
-        }
-        catch (IllegalArgumentException e) {
-            errorMessage = ErrorMessage.ERROR_ORDER_LESS_MIN_PRICE;
-            return false;
-        }
-        return true;
-    }
-
     public List<Menu> getMenus() {
         return Collections.unmodifiableList(menus);
     }
@@ -107,6 +92,6 @@ public class OrderMenuValidator {
     public String getErrorMessage() {
         if(errorMessage==null)
             return "";
-        return errorMessage.getMessage();
+        return errorMessage.toString();
     }
 }

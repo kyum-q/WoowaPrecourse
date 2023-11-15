@@ -44,6 +44,6 @@ public class DateValidator {
     public String getErrorMessage() {
         if(errorMessage==null)
             return "";
-        return errorMessage.getMessage();
+        return errorMessage.toString();
     }
 }
