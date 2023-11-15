@@ -16,6 +16,6 @@ public class Event {
 
     @Override
     public String toString() {
-        return eventName.getName() + ": " + Output.getPriceString(discountPrice * -1);
+        return eventName.getName() + ": " + String.format("%,d원", discountPrice * -1);
     }
 }
