@@ -11,7 +11,8 @@ public enum RequestMessage {
         this.message = message;
     }
 
-    public String getMessage() {
+    @Override
+    public String toString() {
         return message;
     }
 }
