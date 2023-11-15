@@ -35,7 +35,7 @@ class ApplicationTest extends NsTest {
         });
     }
 
-    @ValueSource(strings = {"a", "0", "31"})
+    @ValueSource(strings = {"a", "0", "32"})
     @ParameterizedTest
     void 날짜_예외_테스트(String s) {
         assertSimpleTest(() -> {
@@ -44,19 +44,12 @@ class ApplicationTest extends NsTest {
         });
     }
 
-    @Test
-    void 주문_예외_테스트() {
+    @ValueSource(strings = {"제로콜라-a", "볶음밥-2", "시저샐러드-1 ,시저샐러드-2", "시저샐러드-0", "시저샐러드-1, 샴페인-0"})
+    @ParameterizedTest
+    void 주문_예외_테스트(String s) {
         assertSimpleTest(() -> {
-            runException("3", "제로콜라-a");
+            runException("3", s);
             assertThat(output()).contains("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
-        });
-    }
-
-    @Test
-    void 주문_예외_없는_메뉴_테스트() {
-        assertSimpleTest(() -> {
-            runException("3", "볶음밥-2");
-            assertThat(output()).contains("[ERROR] 없는 메뉴는 주문할 수 없습니다. 다시 입력해 주세요.");
         });
     }
 
@@ -64,7 +57,7 @@ class ApplicationTest extends NsTest {
     void 주문_예외_메뉴_20_초과_테스트() {
         assertSimpleTest(() -> {
             runException("3", "시저샐러드-1, 티본스테이크-20");
-            assertThat(output()).contains("[ERROR] 메뉴는 최대 20개까지만 주문 가능합니다. 다시 입력해 주세요.");
+            assertThat(output()).contains("[ERROR] 메뉴는 한 번에 최대 20개까지만 주문할 수 있습니다. 다시 입력해 주세요.");
         });
     }
 
@@ -73,9 +66,10 @@ class ApplicationTest extends NsTest {
     void 주문_예외_메뉴_음료만_주문_테스트(String s) {
         assertSimpleTest(() -> {
             runException("3", s);
-            assertThat(output()).contains("[ERROR] 음료만 주문하실 수 없습니다. 다시 입력해 주세요.");
+            assertThat(output()).contains("[ERROR] 음료만 주문 시, 주문할 수 없습니다. 다시 입력해 주세요.");
         });
     }
+
 
     @Override
     protected void runMain() {
