@@ -4,9 +4,10 @@ import oncall.constants.Week;
 import oncall.model.MonthWeek;
 
 public class MonthWeekValidator {
-    private String [] split;
+    private String[] split;
     private int month;
     private Week week;
+
     public boolean valid(String s) {
         return validOtherChar(s) && validMonth() && validWeek();
     }
@@ -14,7 +15,7 @@ public class MonthWeekValidator {
     private boolean validOtherChar(String s) {
         try {
             split = s.split(",", -1);
-            if(split.length != 2) {
+            if (split.length != 2) {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
@@ -26,7 +27,7 @@ public class MonthWeekValidator {
     private boolean validMonth() {
         try {
             month = Integer.parseInt(split[0]);
-            if(month < 1 || month > 12)
+            if (month < 1 || month > 12)
                 throw new IllegalArgumentException();
         } catch (IllegalArgumentException e) {
             return false;
@@ -37,7 +38,7 @@ public class MonthWeekValidator {
     private boolean validWeek() {
         try {
             week = Week.getWeek(split[1]);
-            if(week == null)
+            if (week == null)
                 throw new IllegalArgumentException();
         } catch (IllegalArgumentException e) {
             return false;
