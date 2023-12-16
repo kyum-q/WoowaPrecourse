@@ -17,10 +17,14 @@ public class OnCallController {
     }
 
     public void makeOnCall() {
-        MonthWeek monthWeek = inputView.requestMonthWeek();
-        List<List<String>> lists = inputView.requestWeeklyAndWeekend();
-        SequenceManagement management = new SequenceManagement(monthWeek, lists.get(0), lists.get(1));
+        SequenceManagement management = setSequenceManagement();
         management.setOnCall();
         outputView.printResult(management);
+    }
+
+    private SequenceManagement setSequenceManagement() {
+        MonthWeek monthWeek = inputView.requestMonthWeek();
+        List<List<String>> lists = inputView.requestWeeklyAndWeekend();
+        return new SequenceManagement(monthWeek, lists.get(0), lists.get(1));
     }
 }
