@@ -7,15 +7,10 @@ import java.util.Queue;
 
 public class SequenceManagement {
     private MonthWeek monthWeek;
-    private List<String> weekly;
-    private int weeklyNum = 0;
-    private List<String> weekend;
-    private int weekendNum = 0;
+    private List<String> weekly, weekend, result;
+    private int weeklyNum = 0, weekendNum = 0;
     private String preStaff = "";
-    private Queue<String> nextWeekend;
-    private Queue<String> nextWeekly;
-
-    private List<String> result;
+    private Queue<String> nextWeekend, nextWeekly;
 
     public SequenceManagement(MonthWeek monthWeek, List<String> weekly, List<String> weekend) {
         this.monthWeek = monthWeek;
@@ -48,35 +43,31 @@ public class SequenceManagement {
     }
 
     private String getNextWeekendStaff() {
-        if(!nextWeekend.isEmpty()) {
-            return nextWeekend.poll();
-        }
-        String name = weekend.get(weekendNum);
-        if(name.equals(preStaff)) {
-            nextWeekend.add(name);
-            return weekend.get(weekendNum+1);
-        }
-        return name;
+        return getNextStaff(nextWeekend, weekend, weekendNum);
     }
 
     private String getNextWeeklyStaff() {
-        if(!nextWeekly.isEmpty()) {
-            return nextWeekly.poll();
+        return getNextStaff(nextWeekly, weekly, weeklyNum);
+    }
+
+    private String getNextStaff(Queue<String> nextQueue, List<String> staff, int staffNum) {
+        if (!nextQueue.isEmpty()) {
+            return nextQueue.poll();
         }
-        String name = weekly.get(weeklyNum);
-        if(name.equals(preStaff)) {
-            nextWeekly.add(name);
-            return weekly.get(weeklyNum+1);
+        String name = staff.get(staffNum);
+        if (name.equals(preStaff)) {
+            nextQueue.add(name);
+            return staff.get((staffNum + 1) % staff.size());
         }
         return name;
     }
 
     @Override
     public String toString() {
-        String resultString = "";
-        for (int i = 0; i < result.size(); i++) {
-            resultString += result.get(i) + "\n";
+        StringBuilder resultString = new StringBuilder();
+        for (String s : result) {
+            resultString.append(s).append("\n");
         }
-        return resultString;
+        return resultString.toString();
     }
 }
