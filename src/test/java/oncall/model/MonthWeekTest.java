@@ -26,7 +26,7 @@ class MonthWeekTest {
 
         assertThat(count).isEqualTo(dayCount);
     }
-    
+
     @Test
     void 휴일_토_체크() {
         monthWeek = new MonthWeek(1, Week.Sat);
