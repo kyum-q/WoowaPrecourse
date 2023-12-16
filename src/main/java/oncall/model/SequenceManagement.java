@@ -29,7 +29,6 @@ public class SequenceManagement {
         } while (monthWeek.next());
     }
 
-
     private String holidayCheckAndSetName() {
         if (monthWeek.checkHoliday()) {
             String name = getNextWeekendStaff();
