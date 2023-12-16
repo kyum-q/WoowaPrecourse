@@ -15,11 +15,22 @@ public enum Week {
     }
 
     public static Week getWeek(String s) {
-        for (Week week : Week.values()) {
+        for (Week week : oncall.constants.Week.values()) {
             if (week.week.equals(s)) {
                 return week;
             }
         }
         return null;
+    }
+
+    public Week nextWeek() {
+        Week[] weeks = Week.values();
+
+        return weeks[(this.ordinal() + 1) % weeks.length];
+    }
+
+    @Override
+    public String toString() {
+        return week;
     }
 }
