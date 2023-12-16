@@ -9,16 +9,17 @@ public class MonthWeek {
     private Week week;
     private MonthDay monthDay;
     private boolean isWeeklyHoliday = false;
+
     public MonthWeek(int month, Week week) {
         this.month = month;
         this.day = 1;
         this.week = week;
 
-        monthDay = MonthDay.values()[month-1];
+        monthDay = MonthDay.values()[month - 1];
     }
 
     public boolean next() {
-        if(day >= monthDay.getNum())
+        if (day >= monthDay.getNum())
             return false;
         day++;
         week = week.nextWeek();
@@ -27,7 +28,7 @@ public class MonthWeek {
 
     public boolean checkHoliday() {
         isWeeklyHoliday = false;
-        if(week.toString().equals("토") || week.toString().equals("일"))
+        if (week.toString().equals("토") || week.toString().equals("일"))
             return true;
         isWeeklyHoliday = Holiday.isHoliday(month, day);
         return isWeeklyHoliday;
@@ -35,8 +36,8 @@ public class MonthWeek {
 
     @Override
     public String toString() {
-        if(isWeeklyHoliday)
-            return month+"월 "+day +"일 "+week + "(휴일)";
-        return month+"월 "+day +"일 "+week;
+        if (isWeeklyHoliday)
+            return month + "월 " + day + "일 " + week + "(휴일)";
+        return month + "월 " + day + "일 " + week;
     }
 }

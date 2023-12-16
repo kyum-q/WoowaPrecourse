@@ -21,15 +21,15 @@ public class SequenceValidator {
     public boolean validWeekly(String s) {
         weekly = validStaffCount(s);
 
-        if(weekly == null)
+        if (weekly == null)
             return false;
-        return  validNicNameLen(weekly) && validOverlapNames(weekly);
+        return validNicNameLen(weekly) && validOverlapNames(weekly);
     }
 
     public boolean validWeekend(String s) {
         weekend = validStaffCount(s);
 
-        if(weekend == null)
+        if (weekend == null)
             return false;
         return validNicNameLen(weekend) && validOverlapNames(weekend) && validNotContainWeekly();
     }
@@ -91,4 +91,3 @@ public class SequenceValidator {
         return List.of(Collections.unmodifiableList(weekly), Collections.unmodifiableList(weekend));
     }
 }
-
