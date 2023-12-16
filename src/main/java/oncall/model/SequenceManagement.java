@@ -10,7 +10,6 @@ public class SequenceManagement {
     private List<String> weekend;
     private int weekendNum = 0;
     private String preStaff = "";
-
     private String nextWeekend = "";
     private String nextWeekly = "";
 
@@ -25,20 +24,22 @@ public class SequenceManagement {
     public void setOnCall() {
         result = new ArrayList<>();
         do {
-            String name = "";
-            boolean isHoliday = monthWeek.checkHoliday();
-            if (isHoliday) {
-                name = getNextWeekendStaff();
-                weekendNum = (weekendNum+1)%weekend.size();
-            }
-            if(!isHoliday) {
-                name = getNextWeeklyStaff();
-                weeklyNum = (weeklyNum+1)%weekly.size();
-            }
-
-            preStaff = name;
-            result.add(monthWeek.toString() + " " + name);
+            preStaff = holidayCheckAndSetName();
+            result.add(monthWeek.toString() + " " + preStaff);
         } while (monthWeek.next());
+    }
+
+
+    private String holidayCheckAndSetName() {
+        if (monthWeek.checkHoliday()) {
+            String name = getNextWeekendStaff();
+            weekendNum = (weekendNum + 1) % weekend.size();
+            return name;
+        }
+
+        String name = getNextWeeklyStaff();
+        weeklyNum = (weeklyNum + 1) % weekly.size();
+        return name;
     }
 
     private String getNextWeekendStaff() {
