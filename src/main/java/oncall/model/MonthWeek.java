@@ -33,7 +33,7 @@ public class MonthWeek {
         isWeeklyHoliday = Holiday.isHoliday(month, day);
         return isWeeklyHoliday;
     }
-    
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
