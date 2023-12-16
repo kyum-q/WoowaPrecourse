@@ -49,8 +49,7 @@ public class SequenceManagement {
 
     private String getNextWeekendStaff() {
         if(!nextWeekend.isEmpty()) {
-            String next = nextWeekend.poll();
-            return next;
+            return nextWeekend.poll();
         }
         String name = weekend.get(weekendNum);
         if(name.equals(preStaff)) {
@@ -62,8 +61,7 @@ public class SequenceManagement {
 
     private String getNextWeeklyStaff() {
         if(!nextWeekly.isEmpty()) {
-            String next = nextWeekly.poll();
-            return next;
+            return nextWeekly.poll();
         }
         String name = weekly.get(weeklyNum);
         if(name.equals(preStaff)) {
