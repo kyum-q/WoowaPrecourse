@@ -1,7 +1,9 @@
 package oncall.model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class SequenceManagement {
     private MonthWeek monthWeek;
@@ -10,8 +12,8 @@ public class SequenceManagement {
     private List<String> weekend;
     private int weekendNum = 0;
     private String preStaff = "";
-    private String nextWeekend = "";
-    private String nextWeekly = "";
+    private Queue<String> nextWeekend;
+    private Queue<String> nextWeekly;
 
     private List<String> result;
 
@@ -19,6 +21,9 @@ public class SequenceManagement {
         this.monthWeek = monthWeek;
         this.weekly = weekly;
         this.weekend = weekend;
+
+        nextWeekend = new LinkedList<>();
+        nextWeekly = new LinkedList<>();
     }
 
     public void setOnCall() {
@@ -43,28 +48,26 @@ public class SequenceManagement {
     }
 
     private String getNextWeekendStaff() {
-        if(!nextWeekend.equals("")) {
-            String next = nextWeekend;
-            nextWeekend = "";
+        if(!nextWeekend.isEmpty()) {
+            String next = nextWeekend.poll();
             return next;
         }
         String name = weekend.get(weekendNum);
         if(name.equals(preStaff)) {
-            nextWeekend = name;
+            nextWeekend.add(name);
             return weekend.get(weekendNum+1);
         }
         return name;
     }
 
     private String getNextWeeklyStaff() {
-        if(!nextWeekly.equals("")) {
-            String next = nextWeekly;
-            nextWeekly = "";
+        if(!nextWeekly.isEmpty()) {
+            String next = nextWeekly.poll();
             return next;
         }
         String name = weekly.get(weeklyNum);
         if(name.equals(preStaff)) {
-            nextWeekly = name;
+            nextWeekly.add(name);
             return weekly.get(weeklyNum+1);
         }
         return name;
