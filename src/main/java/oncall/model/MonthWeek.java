@@ -28,16 +28,19 @@ public class MonthWeek {
 
     public boolean checkHoliday() {
         isWeeklyHoliday = false;
-        if (week.toString().equals("토") || week.toString().equals("일"))
+        if (week.equals(Week.Sat) || week.equals(Week.Sun))
             return true;
         isWeeklyHoliday = Holiday.isHoliday(month, day);
         return isWeeklyHoliday;
     }
-
+    
     @Override
     public String toString() {
-        if (isWeeklyHoliday)
-            return month + "월 " + day + "일 " + week + "(휴일)";
-        return month + "월 " + day + "일 " + week;
+        StringBuilder result = new StringBuilder();
+        result.append(month).append("월 ").append(day).append("일 ").append(week);
+        if (isWeeklyHoliday) {
+            result.append("(휴일)");
+        }
+        return result.toString();
     }
 }
