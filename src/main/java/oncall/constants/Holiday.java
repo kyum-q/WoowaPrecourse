@@ -1,7 +1,5 @@
 package oncall.constants;
 
-import java.time.Year;
-
 public enum Holiday {
     New_Year(1,1),
     Samiljeol(3,1),
