@@ -31,9 +31,8 @@
 
 <br>
 
-## 최종 심사 결과
+## 최종 심사 결과 - [회고](https://kyumq.tistory.com/189)
 
 [![최종 심사 결과](https://github.com/user-attachments/assets/32b3eb41-3956-425b-93e4-a2f02f4f7b74)](https://kyumq.tistory.com/189)
 
-> [회고](https://kyumq.tistory.com/189)
 
