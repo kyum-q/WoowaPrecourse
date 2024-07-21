@@ -6,10 +6,10 @@
 
 | 주차 | 미션 주제 | 내용 | Repository | PR | 회고 |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| 1주차 | 숫자 야구 | 1-9까지 서로 다른 수로 이루어진 3자리의 수를 맞추는 게임 | [repository](https://github.com/kyum-q/java-baseball-6.git) | [PR](https://github.com/woowacourse-precourse/java-baseball-6/pull/1287) | [회고](https://kyumq.tistory.com/85) |
-| 2주차 | 자동차 경주 | 초간단 자동차 경주 게임 | [repository](https://github.com/kyum-q/java-racingcar-6.git) | [PR](https://github.com/woowacourse-precourse/java-racingcar-6/pull/927) | [회고](https://kyumq.tistory.com/101) |
-| 3주차 | 로또 | 로또 게임(자동 로또 구매 및 결과에 따른 수익률 계산) | [repository](https://github.com/kyum-q/java-lotto-6.git) | [PR](https://github.com/woowacourse-precourse/java-lotto-6/pull/1320) | [회고](https://kyumq.tistory.com/103) |
-| 4주차 | 크리스마스 프로모션 | 식당 이벤트에 따른 혜택 안내 프로그램 | [repository](https://github.com/kyum-q/java-christmas-6-kyum-q.git) | | [회고](https://kyumq.tistory.com/158) | 
+| 1 | 숫자 야구 | 1-9까지 서로 다른 수로 이루어진 3자리의 수를 맞추는 게임 | [repository](https://github.com/kyum-q/java-baseball-6.git) | [PR](https://github.com/woowacourse-precourse/java-baseball-6/pull/1287) | [회고](https://kyumq.tistory.com/85) |
+| 2 | 자동차 경주 | 초간단 자동차 경주 게임 | [repository](https://github.com/kyum-q/java-racingcar-6.git) | [PR](https://github.com/woowacourse-precourse/java-racingcar-6/pull/927) | [회고](https://kyumq.tistory.com/101) |
+| 3 | 로또 | 로또 게임(자동 로또 구매 및 결과에 따른 수익률 계산) | [repository](https://github.com/kyum-q/java-lotto-6.git) | [PR](https://github.com/woowacourse-precourse/java-lotto-6/pull/1320) | [회고](https://kyumq.tistory.com/103) |
+| 4 | 크리스마스 프로모션 | 식당 이벤트에 따른 혜택 안내 프로그램 | [repository](https://github.com/kyum-q/java-christmas-6-kyum-q.git) | | [회고](https://kyumq.tistory.com/158) | 
 
 <br>
 
