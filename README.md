@@ -25,8 +25,8 @@
 
 | 미션 주제 | 내용 | Repository | 회고 |
 | :--- | :---: | :---: | :---: |
-| 점심 메뉴 추천 | 다양한 조건을 만족하게끔해서 한 주의 점심 메뉴 추천 | [링크](https://github.com/kyum-q/WoowaPrecourse/tree/main/java-menu-5) | |
-|  비상 근무  | 우택호 회사의 비상근무표 | [링크](https://github.com/kyum-q/java-oncall-6-kyum-q.git) | [ 회고 ](https://kyumq.tistory.com/188) |
+| (연습) 점심 메뉴 추천 | 다양한 조건을 만족하게끔해서 한 주의 점심 메뉴 추천 | [링크](https://github.com/kyum-q/WoowaPrecourse/tree/main/java-menu-5) | |
+| (실전) 비상 근무  | 우택호 회사의 비상근무표 | [링크](https://github.com/kyum-q/java-oncall-6-kyum-q.git) | [ 회고 ](https://kyumq.tistory.com/188) |
 
 
 <br>
